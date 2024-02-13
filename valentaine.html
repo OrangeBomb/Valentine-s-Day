@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Pacifico', cursive; 
+            background-color: #fce7f2; 
+        }
+
+        #message {
+            font-size: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #78104b; 
+            font-weight: bold; 
+        }
+
+        #image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px; 
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+        }
+
+        #buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        #yesButton, #noButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #yesButton {
+            background-color: #F1C1AF;
+            color: #78104b;
+        }
+
+        #noButton {
+            background-color: #F1C1AF;
+            color: #78104b;
+        }
+
+        #noButton:hover {
+            position: relative;
+            left: calc(${(Math.random() * 50).toFixed(0)}vw - 10vw);
+            top: calc(${(Math.random() * 50).toFixed(0)}vh - 10vh);
+        }
+    </style>
+    <title>Valentine's Day</title>
+</head>
+<body>
+    <div id="message">Будешь моей валентинкой?</div>
+    <img id="image" src="kitty.gif" alt="Valentine's Day GIF">
+    <div id="buttons">
+        <button id="yesButton" onclick="updateMessage()">Да</button>
+        <button id="noButton" onmouseover="moveButton()">Нет</button>
+    </div>
+
+    <script>
+        function updateMessage() {
+            const message = document.getElementById('message');
+            message.innerHTML = 'Спасибо, что стала моей валентинкой, сладость моя!';
+            
+            const image = document.getElementById('image');
+            image.src = 'kittykiss-little-kitty.gif';
+            const buttons = document.getElementById('buttons');
+            buttons.style.display = 'none';
+        }
+
+        function moveButton() {
+            const button = document.getElementById('noButton');
+            button.style.position = 'relative';
+            button.style.left = `calc(${(Math.random() * 50).toFixed(0)}vw - calc(${(Math.random() * 50).toFixed(0)}vw)`;
+            button.style.top = `calc(${(Math.random() * 50).toFixed(0)}vh - 25vh)`;
+            console.log("test moovement: " + button.style.left);
+        }
+    </script>
+</body>
+</html>
+
